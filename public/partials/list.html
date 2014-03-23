@@ -1,0 +1,25 @@
+<div class="page-header">
+    <h1>Today's Events</h1>
+</div>
+<div class="row">
+    <div class="col-xs-5">
+        <a href="#/create" class="btn btn-default"><span class="glyphicon glyphicon-plus"></span>New Event</a>
+    </div>
+    <!--<div class="col-xs-7">-->
+        <!--<input type="text" class="form-control" ng-model="query" placeholder="Search for an event">-->
+    <!--</div>-->
+</div>
+<div class="row">
+    <div class="col-xs-12"><hr></div>
+</div>
+<div class="row" ng-switch on="events.length">
+    <ul ng-switch-when="0">
+        <li><em>No events for today in database. Would you like to <a href="#/create">create one</a>?</li>
+    </ul>
+    <ul ng-switch-default>
+        <li ng-repeat="event in events | filter:query">
+            <a href="#/today/{{event._id}}">{{event.location}}</a>
+        </li>
+    </ul>
+</div>
+<p>&nbsp;</p>

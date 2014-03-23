@@ -1,0 +1,36 @@
+<div class="page-header">
+    <h1>Create New Event</h1>
+</div>
+
+<form role="form" ng-submit="createEvent()">
+    <div class="form-group">
+        <label for="eventLocation">Location</label>
+        <input class="form-controll" id="eventLocation" ng-model="event.location" type="text"
+               placeholder="Enter event location">
+    </div>
+
+    <table class="table table-condensed">
+        <tr ng-repeat="order in event.orders">
+            <td>
+                <input class="form-control" type="text" ng-model="order.order" placeholder="Enter order {{$index + 1}} text">
+            </td>
+        </tr>
+    </table>
+    <button type="button" class="btn btn-default" ng-click="addOrder()">
+        <span class="glyphicon glyphicon-plus"></span> Add another order
+    </button>
+
+    <p><hr></p>
+
+    <div class="row">
+        <div class="col-xs-6">
+            <a href="#/today" class="btn btn-default" role="button">
+                <span class="glyphicon glyphicon-arrow-left"></span>
+                Back to Events List
+            </a>
+        </div>
+        <div class="col-xs-6">
+            <button class="btn btn-primary pull-right" type="submit">Create Event &raquo;</button>
+        </div>
+    </div>
+</form>        

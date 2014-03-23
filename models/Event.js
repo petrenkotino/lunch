@@ -14,11 +14,11 @@ var participateSchema = new mongoose.Schema({
 
 var orderSchema = new mongoose.Schema({
     order: {type: String, required: true },
-    forSharing: Boolean,
-    participants: [participateSchema]
+    forSharing: Boolean    
 });
 
 exports.EventSchema = new mongoose.Schema({
     location: {type: String, required: true },
-    orders: [orderSchema]
+    orders: [orderSchema],
+    participants: [participateSchema]
 });
